@@ -1,0 +1,10 @@
+use test;
+
+CREATE TABLE `test`.`raw_report` (
+  `DATE` DATE NOT NULL,
+  `IMPRESSIONS` VARCHAR(45) NULL,
+  `CLICKS` VARCHAR(45) NULL,
+  `EARNING` VARCHAR(45) NULL,
+  PRIMARY KEY (`DATE`)
+ );
+
