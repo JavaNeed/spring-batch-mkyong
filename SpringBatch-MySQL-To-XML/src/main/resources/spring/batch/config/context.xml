@@ -4,18 +4,18 @@
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-	<!-- stored job-meta in memory --> 
-	<bean id="jobRepository"
-		class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+	<!-- ======== stored job-meta in memory ======= --> 
+	<bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
 		<property name="transactionManager" ref="transactionManager" />
 	</bean>
  	
+ 	<!-- ============ TX Manager  ========== -->
 	<bean id="transactionManager"
 		class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
 	 
-	<bean id="jobLauncher"
-		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+	 
+	 <!-- ======== Job Launcher  ========== -->
+	<bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
 		<property name="jobRepository" ref="jobRepository" />
 	</bean>
-
 </beans>

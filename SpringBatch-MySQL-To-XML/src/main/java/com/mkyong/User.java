@@ -1,11 +1,14 @@
 package com.mkyong;
 
-public class User {
+import java.io.Serializable;
 
-	int id;
-	String username;
-	String password;
-	int age;
+public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+	private int id;
+	private String username;
+	private String password;
+	private int age;
 
 	public int getId() {
 		return id;
@@ -38,5 +41,4 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
 }

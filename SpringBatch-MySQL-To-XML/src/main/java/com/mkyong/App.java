@@ -20,19 +20,21 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext(springConfig);
 
 		JobLauncher jobLauncher = (JobLauncher) context.getBean("jobLauncher");
-		Job job = (Job) context.getBean("testJob");
+		Job job = (Job) context.getBean("testActualJob");
 
 		try {
 			JobParameters param = new JobParametersBuilder().addString("age", "20").toJobParameters();
 			//JobParameters param = new JobParametersBuilder().addString("name", "user_c").toJobParameters();
 			
 			JobExecution execution = jobLauncher.run(job, param);
+			System.out.println("----------------------------------------------");
 			System.out.println("Exit Status : " + execution.getStatus());
 			System.out.println("Exit Status : " + execution.getAllFailureExceptions());
+			System.out.println("-----------------------------------------------");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		System.out.println("Done");
+		System.out.println("Done !!");
 	}
 }
