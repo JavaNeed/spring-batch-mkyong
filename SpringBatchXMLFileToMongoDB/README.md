@@ -1,3 +1,25 @@
+
+Spring Batch Example – XML File To MongoDB Database
+----------------------------------------------------
+In this tutorial, we will show you how to configure a Spring Batch job to read data from an XML file (XStream library) into a no SQL database (MongoDB). In additional, create a unit test case to launch and test the batch jobs.
+
+Tools and libraries used
+-----------------------
+-Maven 3.3.x
+- Eclipse 4.2 or STS
+- JDK 1.8
+- Spring Core 4.2.4.RELEASE
+- Spring Batch 3.0.6.RELEASE
+- Spring Batch Test 3.0.6.RELEASE
+- Spring OXM 4.2.4.RELEASE
+- MongoDB Java Driver 3.1.1
+- MongoDB 2.2.3
+- jUnit 4.12
+- TestNG 6.8.5
+P.S This example – XML file (reader) – MongoDB (writer).
+
+
+```sh
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:batch="http://www.springframework.org/schema/batch" xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -51,3 +73,4 @@
 
 	<bean id="reportConverter" class="com.mkyong.converter.ReportConverter" />
 </beans>
+```
