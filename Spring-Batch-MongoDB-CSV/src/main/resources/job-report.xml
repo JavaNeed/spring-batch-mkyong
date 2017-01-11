@@ -41,16 +41,28 @@
 		<property name="shouldDeleteIfExists" value="true" />
 		
 		<property name="lineAggregator">
+			<bean class="org.springframework.batch.item.file.transform.FormatterLineAggregator">
+				<property name="fieldExtractor">
+					<bean class="org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
+                        <!-- <property name="names" value="id, date, impression,clicks,earning" /> -->
+                        <property name="names" value="id,impression,clicks,earning,date" />
+                    </bean>
+				</property>
+				<property name="format" value="%d,%s,%s,%.2f,%ta %tb %td %tT %tZ %tY" />
+			</bean>
+		</property>
+		
+		<!-- <property name="lineAggregator">
 			<bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
 				<property name="delimiter" value="," />
 				<property name="fieldExtractor">
-                    <!-- Extractor which returns the value of beans property through reflection -->
+                    Extractor which returns the value of beans property through reflection
                     <bean class="org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
                         <property name="names" value="id, date, impression,clicks,earning" />
                     </bean>
                 </property>
 			</bean>
-		</property>
+		</property> -->
 	</bean>
 	
 </beans>
