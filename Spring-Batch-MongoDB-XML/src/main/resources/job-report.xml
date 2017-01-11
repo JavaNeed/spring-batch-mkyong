@@ -34,7 +34,8 @@
     </bean>
 
 	<!-- Stax Event Item Writer to write to XML file -->
-    <bean id="xmlItemWriter" class="org.springframework.batch.item.xml.StaxEventItemWriter">
+    <!-- <bean id="xmlItemWriter" class="org.springframework.batch.item.xml.StaxEventItemWriter"> -->
+    <bean id="xmlItemWriter" class="com.mkyong.model.IndentingStaxEventItemWriter">
         <property name="resource" value="file:outputs/report.xml" />
         <property name="encoding" value="ISO-8859-1" />
         <property name="version" value="1.0" />

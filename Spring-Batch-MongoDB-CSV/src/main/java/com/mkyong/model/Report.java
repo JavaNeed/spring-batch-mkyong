@@ -4,15 +4,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Report {
-
 	private int id;
-
-	private String date;
-
+	private Date date;
 	private long impression;
-
 	private int clicks;
-
 	private BigDecimal earning;
 
 	public int getId() {
@@ -23,11 +18,11 @@ public class Report {
 		this.id = id;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

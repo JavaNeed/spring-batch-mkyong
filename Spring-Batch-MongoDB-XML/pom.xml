@@ -63,6 +63,27 @@
 			<version>${spring.batch.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>net.java.dev.stax-utils</groupId>
+			<artifactId>stax-utils</artifactId>
+			<version>20070216</version>
+		</dependency>
+
+		<dependency>
+			<groupId>sr173-ri</groupId>
+			<artifactId>sr173-ri</artifactId>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>${basedir}/src/lib/jsr173-ri-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+
+
 		<!-- MongoDB database driver -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
