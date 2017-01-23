@@ -10,6 +10,8 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
 
+	<bean class="org.springframework.batch.test.JobLauncherTestUtils" />
+
 	<!-- Actual Job -->
     <batch:job id="reportJob">
         <batch:step id="step1">
@@ -48,7 +50,8 @@
                         <property name="names" value="id,impression,clicks,earning,date" />
                     </bean>
 				</property>
-				<property name="format" value="%d,%s,%s,%.2f,%ta %tb %td %tT %tZ %tY" />
+				<!-- <property name="format" value="%d,%s,%s,%.2f,%ta %tb %td %tT %tZ %tY" /> -->
+				<property name="format" value="%d,%s,%s,%.2f,%tD" />
 			</bean>
 		</property>
 		
