@@ -12,6 +12,9 @@
 	
 	<!-- database settings -->
 	<import resource="../config/database.xml" />
+	
+	<!-- Spring should auto load this bean -->
+    <bean class="org.springframework.batch.test.JobLauncherTestUtils"/>
 
 	<!-- ============= partitioner job ========== -->
 	<job id="partitionJob" xmlns="http://www.springframework.org/schema/batch">
@@ -28,8 +31,7 @@
 	<!-- ======= Jobs to run ===== -->
 	<step id="slave" xmlns="http://www.springframework.org/schema/batch">
 		<tasklet>
-			<chunk reader="pagingItemReader" writer="flatFileItemWriter"
-				   processor="itemProcessor" commit-interval="1" />
+			<chunk reader="pagingItemReader" writer="flatFileItemWriter" processor="itemProcessor" commit-interval="1" />
 		</tasklet>
 	</step>
 
@@ -78,6 +80,7 @@
 			value="file:csv/outputs/users.processed#{stepExecutionContext[fromId]}-#{stepExecutionContext[toId]}.csv" />
 		
 		<property name="appendAllowed" value="false" />
+		<property name="shouldDeleteIfExists" value="true" />
 		
 		<property name="lineAggregator">
 			<bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
