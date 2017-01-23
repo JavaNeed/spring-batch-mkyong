@@ -1,5 +1,7 @@
 use test;
 
+DROP TABLE IF EXISTS `raw_report`;
+
 CREATE TABLE `test`.`raw_report` (
   `DATE` DATE NOT NULL,
   `IMPRESSIONS` VARCHAR(45) NULL,
