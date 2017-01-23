@@ -10,9 +10,9 @@
 
 	<properties>
 		<jdk.version>1.8</jdk.version>
-		<spring.version>4.2.4.RELEASE</spring.version>
-		<spring.batch.version>3.0.6.RELEASE</spring.batch.version>
-		<mysql.driver.version>5.1.25</mysql.driver.version>
+		<spring.version>4.3.4.RELEASE</spring.version>
+		<spring.batch.version>3.0.7.RELEASE</spring.batch.version>
+		<mysql.driver.version>5.1.40</mysql.driver.version>
 		
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
