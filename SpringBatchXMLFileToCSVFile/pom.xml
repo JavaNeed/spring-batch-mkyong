@@ -7,8 +7,8 @@
 
 	<properties>
 		<jdk.version>1.8</jdk.version>
-		<spring.version>4.2.4.RELEASE</spring.version>
-		<spring.batch.version>3.0.6.RELEASE</spring.batch.version>
+		<spring.version>4.3.4.RELEASE</spring.version>
+		<spring.batch.version>3.0.7.RELEASE</spring.batch.version>
 		<junit.version>4.12</junit.version>
 
 		<!-- Logging -->
@@ -51,6 +51,13 @@
 			<artifactId>spring-batch-test</artifactId>
 			<version>${spring.batch.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 
 		<!-- Logging with SLF4J & LogBack -->
 		<dependency>

@@ -6,6 +6,9 @@
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
 	http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd">
 
+	<!-- Spring should auto load this bean -->
+    <bean class="org.springframework.batch.test.JobLauncherTestUtils"/>
+
 	<batch:job id="reportJob">
 		<batch:step id="step1">
 			<batch:tasklet>
