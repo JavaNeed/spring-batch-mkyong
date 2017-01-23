@@ -30,10 +30,10 @@ public class ReportConverter implements Converter {
 	@Override
 	public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
 
-		Report obj = new Report();
+		Report report = new Report();
 
 		//get attribute
-		obj.setId(Integer.valueOf(reader.getAttribute("id")));
+		report.setId(Integer.valueOf(reader.getAttribute("id")));
 		reader.moveDown(); //get date
 
 		Date date = null;
@@ -42,9 +42,10 @@ public class ReportConverter implements Converter {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		obj.setDate(date);
+		report.setDate(date);
+		// Select the parent node as current node.
 		reader.moveUp();
-
+		// Select the current child as current node
 		reader.moveDown(); //get impression
 
 		String impression = reader.getValue();
@@ -55,17 +56,22 @@ public class ReportConverter implements Converter {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		obj.setImpression(number.longValue());
+		report.setImpression(number.longValue());
 
+		// Select the parent node as current node.
 		reader.moveUp();
-
+		// Select the current child as current node
 		reader.moveDown(); //get click
-		obj.setClicks(Integer.valueOf(reader.getValue()));
+		report.setClicks(Integer.valueOf(reader.getValue()));
+		
+		// Select the parent node as current node.
 		reader.moveUp();
-
+		// Select the current child as current node
 		reader.moveDown(); //get earning
-		obj.setEarning(new BigDecimal(reader.getValue()));
+		report.setEarning(new BigDecimal(reader.getValue()));
+		
+		// Select the parent node as current node.
 		reader.moveUp();
-		return obj;
+		return report;
 	}
 }
