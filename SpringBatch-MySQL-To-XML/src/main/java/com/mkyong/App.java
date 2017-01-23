@@ -24,7 +24,6 @@ public class App {
 
 		try {
 			JobParameters param = new JobParametersBuilder().addString("age", "20").toJobParameters();
-			//JobParameters param = new JobParametersBuilder().addString("name", "user_c").toJobParameters();
 			
 			JobExecution execution = jobLauncher.run(job, param);
 			System.out.println("----------------------------------------------");

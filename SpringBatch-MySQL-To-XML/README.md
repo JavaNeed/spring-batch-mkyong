@@ -15,3 +15,7 @@ Tools and libraries used
 - P.S This example – MySQL jdbc (reader) – XML (writer).
 - STS or Eclipse
 
+Reference:
+---------
+- https://examples.javacodegeeks.com/enterprise-java/spring/spring-batch-job-example/
+

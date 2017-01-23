@@ -11,9 +11,13 @@
     
 	<import resource="../config/context.xml" />
 	<import resource="../config/database.xml" />
+	
+	<!-- Spring should auto load this bean -->
+    <bean class="org.springframework.batch.test.JobLauncherTestUtils"/>
 
+	<bean id="userItemReaderExecutionListener" class="com.mkyong.UserItemReaderExecutionListener" />
 
-	<!-- ==== Item Reader  ===== -->
+	<!-- ==== Item Reader  ===== Pass Value at run time !!!!!!!!!!!!!!! -->
 	<bean id="itemReader" class="org.springframework.batch.item.database.JdbcCursorItemReader" scope="step">
 		<property name="dataSource" ref="dataSource" />
 		<property name="sql" value="select id, username,password, age from users where age > #{jobParameters['age']}" />
@@ -54,6 +58,10 @@
 		<step id="step1">
 			<tasklet>
 				<chunk reader="itemReader" writer="itemWriter" commit-interval="1" />
+				<!-- This is purely to read the User records it processed -->
+				<listeners>
+				    <listener ref="userItemReaderExecutionListener" />
+				</listeners>
 			</tasklet>
 		</step>
 	</job>
@@ -61,6 +69,8 @@
 
 	<!-- ======== Item Writter ========= -->
 	<bean id="itemWriter" class="org.springframework.batch.item.xml.StaxEventItemWriter">
+		<property name="encoding" value="ISO-8859-1" />
+	    <property name="version" value="1.0" />
 		<property name="resource" value="file:xml/users.xml" />
 		<property name="marshaller" ref="userUnmarshaller" />
 		<property name="rootTagName" value="users" />

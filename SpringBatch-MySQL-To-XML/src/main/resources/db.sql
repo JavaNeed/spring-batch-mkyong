@@ -1,3 +1,7 @@
+use test;
+
+DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `test`.`users` (
   `id` INT NOT NULL,
   `username` VARCHAR(100) NULL,
